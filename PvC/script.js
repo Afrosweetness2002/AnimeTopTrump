@@ -78,7 +78,7 @@ const light = new AnimeCard(
   17,
   "Light Yagami",
   10,
-  05,
+  5,
   99,
   "../images/light.jpg"
 );
@@ -145,12 +145,54 @@ const allMight = new AnimeCard(
   "../images/light.jpg"
 );
 
-let deckOfCards = {
+const deck = [
   naruto,
   luffy,
-};
+  zoro,
+  sasuke,
+  sanji,
+  sakura,
+  saitama,
+  genos,
+  kakashi,
+  meliodas,
+  ban,
+  escanor,
+  whitebeard,
+  goku,
+  jiraya,
+  kaneki,
+  light,
+  shikamaru,
+  madara,
+  orochimaru,
+  itachi,
+  kaidou,
+  gojo,
+  natsu,
+  eren,
+  shinra,
+  gon,
+  tanjiro,
+  deku,
+  allMight,
+];
+
+
+/*
+
+1. make a computer array and a player array that randomly get cards from the overall deck. 
+2. then randomly pick cardss from the individual arrays of player and computer, to compare at the start of each round. 
+3. create a card display function to display, one card at a time from each deck, and remove at the end of the round. 
+4. create buttons for each stat so the player can compare. 
+5. When player wins, they get both cards, and it pushes the cards to player array. 
+6. the game would end when either one has 0 cards. 
+7. victory sounds. 
+*/
 console.log(naruto);
 console.log("Hello");
 console.log(deckOfCards);
 let name = document.getElementById("name");
-name.innerText = naruto.name;
+console.log(naruto)
+name.innerText= naruto.name;
+console.log(name);
