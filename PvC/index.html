@@ -6,14 +6,85 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PvC</title>
     <script src="script.js" type="module"></script>
+    <link rel="stylesheet" href="index.css">
 </head>
 <body>
+    <div id="container">
+        <h1 id="heading">Player VS Computer</h1>
+    </div>
+    <div id="gameButtons">
+        <button id="restart">New Game</button>
+        <button id="nextRound">New Round</button>
+    </div>
+    <div id="cards">
+        <div id="playerCard">
+            <div>
+                <h2 id="name">character Name</h2>
+            </div>
+            <div id="images">
+                <img id="img" src="" alt="character image" width="200px">
+           
+            </div>
+            <div>
+                <table>
+                    <tr>
+                        <th>Stats</th>
+                        <th>Value</th>
+                    </tr>
+                    <tr>
+                        <td>Strength</td>
+                        <td id="strengthValue"></td>
+                    </tr>
+                    <tr>
+                        <td>Agilty</td>
+                        <td id="agilityValue"></td>
+                    </tr>
+                    <tr>
+                        <td>Intelligence</td>
+                        <td id="intelligenceValue">$90</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div id="computerCard">
+            <div>
+                <h2>Computer</h2>
+                <h2 id="computer-name">character Name</h2>
+            </div>
+            <div id="computer-images">
+                <img id="computer-image" width="200px" src="" alt="character image">
+           
+            </div>
+            <div>
+                <table>
+                    <tr>
+                        <th>Stats</th>
+                        <th>Value</th>
+                    </tr>
+                    <tr>
+                        <td>Strength</td>
+                        <td>Secret</td>
+                    </tr>
+                    <tr>
+                        <td>Agilty</td>
+                        <td>Secret</td>
+                    </tr>
+                    <tr>
+                        <td>Intelligence</td>
+                        <td>Secret</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
     <div>
-        <h1>Player VS Computer</h1>
+        <h3>Choose a Stat to Computer</h3>
+        <div id="compareStat">
+            <button id="strenStat">Strength</button>
+            <button id="agilStat">Agility</button>
+            <button id="intelStat">Intelligence</button>
+        </div>
     </div>
-    <div class="playerCard">
-        <h2 id="cardTitle">Hello</h2>
-       
-    </div>
+        
 </body>
 </html>

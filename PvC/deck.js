@@ -1,10 +1,15 @@
 export default class AnimeCard {
-    constructor(_id,_name, _strength, _agility, _intelligence, _imgUrl){
-        this.id = _id
-        this.name = _name; 
-        this.strength = _strength; 
-        this.agility  = _agility; 
-        this.intelligence = _intelligence; 
-        this.imgUrl = _imgUrl;
+    constructor(id,name, strength, agility, intelligence, imgUrl){
+        this.id = id
+        this.name = name; 
+        this.strength = strength; 
+        this.agility  = agility; 
+        this.intelligence = intelligence; 
+        this.imgUrl = imgUrl;
     }
 }
+
+// classes are entities
+// you makes classes where you find entities in a project
+// variables in a class aka fields are attributes of that entity such as size, weight, etc
+// methods are functions/ actions of that entity, such as speak, jump or getters and setters

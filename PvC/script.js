@@ -114,6 +114,7 @@ const itachi = new AnimeCard(
   54,
   "../images/itachi.jpg"
 );
+
 const kaidou = new AnimeCard(22, "Kaidou", 79, 80, 61, "../images/Kaidou.jpg");
 const gojo = new AnimeCard(23, "Gojo Satoru", 58, 47, 37, "../images/gojo.jpg");
 const natsu = new AnimeCard(
@@ -145,7 +146,7 @@ const allMight = new AnimeCard(
   "../images/light.jpg"
 );
 
-const deck = [
+let deck = [
   naruto,
   luffy,
   zoro,
@@ -177,10 +178,29 @@ const deck = [
   deku,
   allMight,
 ];
+let playerCards = [];
+let computerCards = [];
 
+function assignCards() {
 
-/*
+  // asign player cards
+  while (playerCards.length <= 14) {
+    let index = Math.floor(Math.random() * 29);
+    if(!playerCards.includes(deck[index])){
+      playerCards.push(deck[index]);
 
+    }
+  }
+  console.log(playerCards);
+
+  // asign computer cards
+  computerCards = deck.filter(card => !playerCards.includes(card))
+  console.log(computerCards);
+}
+
+assignCards();
+
+/* 
 1. make a computer array and a player array that randomly get cards from the overall deck. 
 2. then randomly pick cardss from the individual arrays of player and computer, to compare at the start of each round. 
 3. create a card display function to display, one card at a time from each deck, and remove at the end of the round. 
@@ -189,10 +209,66 @@ const deck = [
 6. the game would end when either one has 0 cards. 
 7. victory sounds. 
 */
-console.log(naruto);
-console.log("Hello");
-console.log(deckOfCards);
-let name = document.getElementById("name");
-console.log(naruto)
-name.innerText= naruto.name;
-console.log(name);
+const playerName = document.getElementById("name");
+const playerImages = document.getElementById("img");
+const playerStrength = document.getElementById("strengthValue");
+const playerAgility = document.getElementById("agilityValue");
+const playerIntelligence = document.getElementById("intelligenceValue");
+const nextRound = document.getElementById("nextRound");
+
+const compName = document.getElementById("computer-name");
+const compImages = document.getElementById("computer-image");
+
+let playerCounter = 0;
+
+playerName.innerText = playerCards[playerCounter].name;
+playerStrength.innerText = playerCards[playerCounter].strength;
+playerAgility.innerText = playerCards[playerCounter].agility;
+playerIntelligence.innerText = playerCards[playerCounter].intelligence;
+let img = playerCards[playerCounter].imgUrl;
+playerImages.src = img;
+
+compName.innerText = computerCards[playerCounter].name;
+compImages.innerText = computerCards[playerCounter].strength;
+let compImg = computerCards[playerCounter].imgUrl;
+compImages.src = compImg;
+
+
+function newRound() {
+  if (playerCounter > playerCards.length) {
+    return console.log("All Cards have been used!!");
+  }
+  playerCounter++;
+  console.log(playerCounter)
+  playerName.innerText = playerCards[playerCounter].name;
+  playerStrength.innerText = playerCards[playerCounter].strength;
+  playerAgility.innerText = playerCards[playerCounter].agility;
+  playerIntelligence.innerText = playerCards[playerCounter].intelligence;
+  let img = playerCards[playerCounter].imgUrl;
+  playerImages.src = img;
+
+  compName.innerText = computerCards[playerCounter].name;
+  compImages.innerText = computerCards[playerCounter].strength;
+  let compImg = computerCards[playerCounter].imgUrl;
+  compImages.src = compImg;
+
+}
+
+
+
+let c = playerCounter;
+
+nextRound.addEventListener("click", newRound);
+
+// Use a for loop and increase the counter when a button for a new round is pressed.
+nextRound.addEventListener("click", newRound);
+
+// Use a for loop and increase the counter when a button for a new round is pressed.
+ 
+
+/**
+Create a function to compare stats for each buttons, which compares player vs computer, 
+and if one is greater than the other I pop it out, into the other array. 
+
+Then copy paste for each button and each stats. 
+ */
