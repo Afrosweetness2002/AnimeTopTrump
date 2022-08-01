@@ -16,7 +16,7 @@ const luffy = new AnimeCard(
   10,
   "../images/luffy.jpg"
 );
-const zoro = new AnimeCard(3, "Zoro", 80, 70, 20, "../images/luffy.jpg");
+const zoro = new AnimeCard(3, "Zoro", 80, 70, 20, "../images/zoro.jpg");
 const sasuke = new AnimeCard(
   4,
   "Sasuke Uchicha",
@@ -143,7 +143,7 @@ const allMight = new AnimeCard(
   45,
   50,
   49,
-  "../images/light.jpg"
+  "../images/allMight.jpg"
 );
 
 let deck = [
@@ -182,19 +182,17 @@ let playerCards = [];
 let computerCards = [];
 
 function assignCards() {
-
   // asign player cards
   while (playerCards.length <= 14) {
     let index = Math.floor(Math.random() * 29);
-    if(!playerCards.includes(deck[index])){
+    if (!playerCards.includes(deck[index])) {
       playerCards.push(deck[index]);
-
     }
   }
   console.log(playerCards);
 
   // asign computer cards
-  computerCards = deck.filter(card => !playerCards.includes(card))
+  computerCards = deck.filter((card) => !playerCards.includes(card));
   console.log(computerCards);
 }
 
@@ -209,6 +207,9 @@ assignCards();
 6. the game would end when either one has 0 cards. 
 7. victory sounds. 
 */
+
+const playerCardsLeft = document.getElementById("playerCardsLeft");
+const computerCardsLeft = document.getElementById("computerCardsLeft");
 const playerName = document.getElementById("name");
 const playerImages = document.getElementById("img");
 const playerStrength = document.getElementById("strengthValue");
@@ -218,6 +219,10 @@ const nextRound = document.getElementById("nextRound");
 
 const compName = document.getElementById("computer-name");
 const compImages = document.getElementById("computer-image");
+
+const strengthStat = document.getElementById("strengthStat");
+const agilityStat = document.getElementById("agilityStat");
+const intelligenceStat = document.getElementById("intelligenceStat");
 
 let playerCounter = 0;
 
@@ -233,13 +238,14 @@ compImages.innerText = computerCards[playerCounter].strength;
 let compImg = computerCards[playerCounter].imgUrl;
 compImages.src = compImg;
 
-
 function newRound() {
-  if (playerCounter > playerCards.length) {
-    return console.log("All Cards have been used!!");
-  }
   playerCounter++;
-  console.log(playerCounter)
+  if (!playerCards[playerCounter] || computerCards[playerCards]) {
+    playerCounter = 0;
+  }
+  console.log(playerCounter);
+  console.log(playerCards);
+  console.log(computerCards);
   playerName.innerText = playerCards[playerCounter].name;
   playerStrength.innerText = playerCards[playerCounter].strength;
   playerAgility.innerText = playerCards[playerCounter].agility;
@@ -251,20 +257,10 @@ function newRound() {
   compImages.innerText = computerCards[playerCounter].strength;
   let compImg = computerCards[playerCounter].imgUrl;
   compImages.src = compImg;
-
 }
 
-
-
-let c = playerCounter;
-
+// Use a button to increase the counter when a button for a new round is pressed.
 nextRound.addEventListener("click", newRound);
-
-// Use a for loop and increase the counter when a button for a new round is pressed.
-nextRound.addEventListener("click", newRound);
-
-// Use a for loop and increase the counter when a button for a new round is pressed.
- 
 
 /**
 Create a function to compare stats for each buttons, which compares player vs computer, 
@@ -272,3 +268,86 @@ and if one is greater than the other I pop it out, into the other array.
 
 Then copy paste for each button and each stats. 
  */
+
+function strength() {
+  let pcPlays = playerCards[playerCounter].strength;
+  console.log(pcPlays);
+  let comPlays = computerCards[playerCounter].strength;
+  let playerCardName = playerCards[playerCounter].name;
+  let computerCardName = computerCards[playerCounter].name; 
+  console.log(comPlays);
+  if (pcPlays > comPlays) {
+    if (!playerCards.includes(computerCards[playerCounter])) {
+      playerCards.splice(playerCards.length, 0, computerCards[playerCounter]);
+      computerCards.splice(playerCounter, 1);
+    }
+
+    console.log("Player stats higher");
+    console.log(playerCards);
+  } else if (comPlays > pcPlays) {
+    if (!computerCards.includes(playerCards[playerCounter])) {
+      computerCards.splice(playerCards.length, 0, playerCards[playerCounter]);
+      playerCards.splice(playerCounter, 1);
+    }
+
+    console.log("Computer Stats higher");
+    console.log(computerCards);
+  }
+  playerCardsLeft.innerText = "Player Cards " + playerCards.length;
+  computerCardsLeft.innerText = "Computer Cards " + computerCards.length;
+}
+
+function agility() {
+  let pcPlays = playerCards[playerCounter].agility;
+  console.log(pcPlays);
+  let comPlays = computerCards[playerCounter].agility;
+  console.log(comPlays);
+  if (pcPlays > comPlays) {
+    if (!playerCards.includes(computerCards[playerCounter])) {
+      playerCards.splice(playerCards.length, 0, computerCards[playerCounter]);
+      computerCards.splice(playerCounter, 1);
+    }
+
+    console.log("Player stats higher");
+    console.log(playerCards);
+  } else if (comPlays > pcPlays) {
+    if (!computerCards.includes(playerCards[playerCounter])) {
+      computerCards.splice(playerCards.length, 0, playerCards[playerCounter]);
+      playerCards.splice(playerCounter, 1);
+    }
+
+    console.log("Computer Stats higher");
+    console.log(computerCards);
+  }
+}
+
+function intelligence() {
+  let pcPlays = playerCards[playerCounter].intelligence;
+  console.log(pcPlays);
+  let comPlays = computerCards[playerCounter].intelligence;
+  console.log(comPlays);
+  if (pcPlays > comPlays) {
+    if (!playerCards.includes(computerCards[playerCounter])) {
+      playerCards.splice(playerCards.length, 0, computerCards[playerCounter]);
+      computerCards.splice(playerCounter, 1);
+    }
+
+    console.log("Player stats higher");
+    console.log(playerCards);
+  } else if (comPlays > pcPlays) {
+    if (!computerCards.includes(playerCards[playerCounter])) {
+      computerCards.splice(playerCards.length, 0, playerCards[playerCounter]);
+      playerCards.splice(playerCounter, 1);
+    }
+
+    console.log("Computer Stats higher");
+    console.log(computerCards);
+  }
+}
+
+playerCardsLeft.innerText = "Player Cards " + playerCards.length;
+computerCardsLeft.innerText = "Computer Cards " + computerCards.length;
+
+strengthStat.addEventListener("click", strength);
+agilityStat.addEventListener("click", agility);
+intelligenceStat.addEventListener("click", intelligence);
