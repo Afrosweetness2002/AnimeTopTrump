@@ -178,36 +178,6 @@ let deck = [
   deku,
   allMight,
 ];
-let playerCards = [];
-let computerCards = [];
-
-function assignCards() {
-  // asign player cards
-  while (playerCards.length <= 14) {
-    let index = Math.floor(Math.random() * 29);
-    if (!playerCards.includes(deck[index])) {
-      playerCards.push(deck[index]);
-    }
-  }
-  console.log(playerCards);
-
-  // asign computer cards
-  computerCards = deck.filter((card) => !playerCards.includes(card));
-  console.log(computerCards);
-}
-
-assignCards();
-
-/* 
-1. make a computer array and a player array that randomly get cards from the overall deck. 
-2. then randomly pick cardss from the individual arrays of player and computer, to compare at the start of each round. 
-3. create a card display function to display, one card at a time from each deck, and remove at the end of the round. 
-4. create buttons for each stat so the player can compare. 
-5. When player wins, they get both cards, and it pushes the cards to player array. 
-6. the game would end when either one has 0 cards. 
-7. victory sounds. 
-*/
-
 const playerCardsLeft = document.getElementById("playerCardsLeft");
 const computerCardsLeft = document.getElementById("computerCardsLeft");
 const playerName = document.getElementById("name");
@@ -224,7 +194,56 @@ const strengthStat = document.getElementById("strengthStat");
 const agilityStat = document.getElementById("agilityStat");
 const intelligenceStat = document.getElementById("intelligenceStat");
 
+const roundWinner = document.getElementById("roundWinner");
+
+
 let playerCounter = 0;
+let playerCards = [];
+let computerCards = [];
+
+function assignCards() {
+  // asign player cards
+  playerCards = [];
+  computerCards = [];
+  while (playerCards.length <= 14) {
+    let index = Math.floor(Math.random() * 29);
+    if (!playerCards.includes(deck[index])) {
+      playerCards.push(deck[index]);
+    }
+  }
+  console.log(playerCards);
+
+  // asign computer cards
+  computerCards = deck.filter((card) => !playerCards.includes(card));
+  console.log(computerCards);
+  playerName.innerText = playerCards[playerCounter].name;
+  playerStrength.innerText = playerCards[playerCounter].strength;
+  playerAgility.innerText = playerCards[playerCounter].agility;
+  playerIntelligence.innerText = playerCards[playerCounter].intelligence;
+  let img = playerCards[playerCounter].imgUrl;
+  playerImages.src = img;
+
+  compName.innerText = computerCards[playerCounter].name;
+  compImages.innerText = computerCards[playerCounter].strength;
+  let compImg = computerCards[playerCounter].imgUrl;
+  compImages.src = compImg;
+  playerCardsLeft.innerText = "Player Cards " + playerCards.length;
+  computerCardsLeft.innerText = "Computer Cards " + computerCards.length;
+}
+
+assignCards();
+const newGame = document.getElementById("restart");
+newGame.addEventListener("click", assignCards);
+
+/* 
+1. make a computer array and a player array that randomly get cards from the overall deck. 
+2. then randomly pick cardss from the individual arrays of player and computer, to compare at the start of each round. 
+3. create a card display function to display, one card at a time from each deck, and remove at the end of the round. 
+4. create buttons for each stat so the player can compare. 
+5. When player wins, they get both cards, and it pushes the cards to player array. 
+6. the game would end when either one has 0 cards. 
+7. victory sounds. 
+*/
 
 playerName.innerText = playerCards[playerCounter].name;
 playerStrength.innerText = playerCards[playerCounter].strength;
@@ -257,6 +276,8 @@ function newRound() {
   compImages.innerText = computerCards[playerCounter].strength;
   let compImg = computerCards[playerCounter].imgUrl;
   compImages.src = compImg;
+
+  roundWinner.innerText = "Round Winner _____";
 }
 
 // Use a button to increase the counter when a button for a new round is pressed.
@@ -274,14 +295,14 @@ function strength() {
   console.log(pcPlays);
   let comPlays = computerCards[playerCounter].strength;
   let playerCardName = playerCards[playerCounter].name;
-  let computerCardName = computerCards[playerCounter].name; 
+  let computerCardName = computerCards[playerCounter].name;
   console.log(comPlays);
   if (pcPlays > comPlays) {
     if (!playerCards.includes(computerCards[playerCounter])) {
       playerCards.splice(playerCards.length, 0, computerCards[playerCounter]);
       computerCards.splice(playerCounter, 1);
     }
-
+    roundWinner.innerText = "Round Winner Player";
     console.log("Player stats higher");
     console.log(playerCards);
   } else if (comPlays > pcPlays) {
@@ -289,12 +310,15 @@ function strength() {
       computerCards.splice(playerCards.length, 0, playerCards[playerCounter]);
       playerCards.splice(playerCounter, 1);
     }
-
+    roundWinner.innerText = "Round Winner Computer";
     console.log("Computer Stats higher");
     console.log(computerCards);
+  }else{
+    roundWinner.innerText = "Stats Equal! Choose another Stat";
   }
   playerCardsLeft.innerText = "Player Cards " + playerCards.length;
   computerCardsLeft.innerText = "Computer Cards " + computerCards.length;
+ 
 }
 
 function agility() {
@@ -307,7 +331,7 @@ function agility() {
       playerCards.splice(playerCards.length, 0, computerCards[playerCounter]);
       computerCards.splice(playerCounter, 1);
     }
-
+    roundWinner.innerText = "Round Winner Player";
     console.log("Player stats higher");
     console.log(playerCards);
   } else if (comPlays > pcPlays) {
@@ -315,10 +339,14 @@ function agility() {
       computerCards.splice(playerCards.length, 0, playerCards[playerCounter]);
       playerCards.splice(playerCounter, 1);
     }
-
+    roundWinner.innerText = "Round Winner Computer";
     console.log("Computer Stats higher");
     console.log(computerCards);
+  }else{
+    roundWinner.innerText = "Stats Equal! Choose another Stat";
   }
+  playerCardsLeft.innerText = "Player Cards " + playerCards.length;
+  computerCardsLeft.innerText = "Computer Cards " + computerCards.length;
 }
 
 function intelligence() {
@@ -331,7 +359,7 @@ function intelligence() {
       playerCards.splice(playerCards.length, 0, computerCards[playerCounter]);
       computerCards.splice(playerCounter, 1);
     }
-
+    roundWinner.innerText = "Round Winner Player";
     console.log("Player stats higher");
     console.log(playerCards);
   } else if (comPlays > pcPlays) {
@@ -339,14 +367,26 @@ function intelligence() {
       computerCards.splice(playerCards.length, 0, playerCards[playerCounter]);
       playerCards.splice(playerCounter, 1);
     }
-
+    roundWinner.innerText = "Round Winner Computer";
     console.log("Computer Stats higher");
     console.log(computerCards);
+  }else{
+    roundWinner.innerText = "Stats Equal! Choose another Stat";
   }
+  playerCardsLeft.innerText = "Player Cards " + playerCards.length;
+  computerCardsLeft.innerText = "Computer Cards " + computerCards.length;
 }
 
 playerCardsLeft.innerText = "Player Cards " + playerCards.length;
 computerCardsLeft.innerText = "Computer Cards " + computerCards.length;
+
+/**#
+1. Make an array, which contains all button ids, 
+2. Get the id of the clicked button
+3. Pass 1, and 2, to a function, the function is called by the click. 
+4. In function, create new array of all id's except the one that was clicked. 
+5. forEach over that array, that apply deactivate class. 
+*/
 
 strengthStat.addEventListener("click", strength);
 agilityStat.addEventListener("click", agility);

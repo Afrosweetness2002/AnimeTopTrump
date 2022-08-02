@@ -14,6 +14,7 @@
     </div>
     <div id="gameButtons">
         <button id="restart">New Game</button>
+        <div></div>
         <button id="nextRound">New Round</button>
     </div>
     <div id="cards">
@@ -23,7 +24,7 @@
                 <h2 id="name">character Name</h2>
             </div>
             <div id="images">
-                <img id="img" src="" alt="character image" width="250px" height="250px">
+                <img id="img" src="" alt="character image" width="300px" height="300px">
            
             </div>
             <div>
@@ -47,13 +48,20 @@
                 </table>
             </div>
         </div>
+        <div id="gameNotifications">
+            <h2 id="roundWinner">Round Winner is ____</h2>
+            <h3 id="clickText">Click the next round to Continue
+            </h3>
+        </div>
         <div id="computerCard">
             <h2 id="computerCardsLeft">Computer</h2>
             <div>
                 <h2 id="computer-name">character Name</h2>
             </div>
+
+            
             <div id="computer-images">
-                <img id="computer-image" width="250px" height="250px" src="" alt="character image">
+                <img id="computer-image" width="300px" height="300px" src="" alt="character image">
            
             </div>
             <div>
@@ -79,7 +87,7 @@
         </div>
     </div>
     <div>
-        <h3>Choose a Stat to Compare</h3>
+        <h3 id="compareTitle">Choose a Stat to Compare</h3>
         <div id="compareStat">
             <button id="strengthStat">Strength</button>
             <button id="agilityStat">Agility</button>

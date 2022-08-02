@@ -7,16 +7,27 @@
 body {
   background: #fefefe;
   font-family: sans-serif;
+  background-image: url(https://cutewallpaper.org/22/sunrise-anime-wallpapers/960831414.jpg);
+  background-size: 100%;
+  background-repeat: no-repeat;
+  margin-left: 25px;
 }
 #container {
   width: 90%;
-  margin: 50px auto;
-  border: 1px solid red;
+  margin: 20px auto;
 }
 #heading {
-  text-align: center;
-  font-size: 30px;
-  margin-bottom: 50px;
+  display: flex;
+  justify-content: center;
+  font-family: "Permanent Marker";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 54px;
+  line-height: 93px;
+
+  color: #fbfbfb;
+
+  mix-blend-mode: normal;
 }
 
 table,
@@ -24,15 +35,160 @@ th,
 td {
   border: 1px solid black;
   vertical-align: top;
-  min-width: 122px;
+  min-width: 210px;
 }
 
 div {
-  border: 1px solid red;
+  /* border: 1px solid red; */
 }
 
-#cards{
-    display: flex;
-    justify-content: space-around;
-    margin-top:20px;
+#cards {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+  width: 1440px;
+}
+#compareTitle {
+  display: flex;
+  justify-content: center;
+}
+#compareStat {
+  display: flex;
+  justify-content: space-evenly;
+}
+#gameButtons {
+  display: flex;
+  justify-content: space-around;
+}
+#gameNotifications {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+#playerCard {
+  background: #ec6b6b;
+  mix-blend-mode: normal;
+  border-radius: 20px;
+  font-family: "Permanent Marker";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 37px;
+  text-align: center;
+
+  color: #ffffff;
+}
+#clickText {
+  position: absolute;
+  width: 363px;
+  height: 38px;
+  left: 538px;
+  top: 496px;
+}
+
+#computerCard {
+  background: #ec6b6b;
+  mix-blend-mode: normal;
+  border-radius: 20px;
+  font-family: "Permanent Marker";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 37px;
+  text-align: center;
+
+  color: #ffffff;
+}
+#gameNotifications {
+  font-family: "Permanent Marker";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 37px;
+  text-align: center;
+
+  color: #fbfbfb;
+
+  mix-blend-mode: normal;
+}
+#compareTitle {
+  font-family: "Permanent Marker";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 38px;
+  text-align: center;
+
+  color: #fbfbfb;
+
+  mix-blend-mode: normal;
+}
+
+#restart {
+  width: 390px;
+  height: 36px;
+  background: #ff7070;
+  border-radius: 40px;
+  font-family: "Permanent Marker";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 35px;
+  text-align: center;
+
+  color: #000000;
+}
+#nextRound {
+  width: 390px;
+  height: 36px;
+  background: #ff7070;
+  border-radius: 40px;
+  font-family: "Permanent Marker";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 35px;
+  text-align: center;
+  margin-left:125px;
+  color: #000000;
+}
+#gameButtons{
+  display: flex;
+  justify-content: space-around;
+}
+#strengthStat{
+  width: 390px;
+  height: 36px;
+  background: #ff7070;
+  border-radius: 40px;
+  font-family: "Permanent Marker";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 35px;
+  text-align: center;
+}
+#agilityStat{
+  width: 390px;
+  height: 36px;
+  background: #ff7070;
+  border-radius: 40px;
+  font-family: "Permanent Marker";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 35px;
+  text-align: center;
+}
+#intelligenceStat{
+  width: 390px;
+  height: 36px;
+  background: #ff7070;
+  border-radius: 40px;
+  font-family: "Permanent Marker";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 35px;
+  text-align: center;
 }
