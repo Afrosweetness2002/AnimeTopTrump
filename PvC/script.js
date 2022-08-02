@@ -229,6 +229,7 @@ function assignCards() {
   compImages.src = compImg;
   playerCardsLeft.innerText = "Player Cards " + playerCards.length;
   computerCardsLeft.innerText = "Computer Cards " + computerCards.length;
+  roundWinner.innerText = "Round Winner _____";
 }
 
 assignCards();
