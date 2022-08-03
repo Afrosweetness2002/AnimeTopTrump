@@ -200,6 +200,7 @@ const roundWinner = document.getElementById("roundWinner");
 let playerCounter = 0;
 let playerCards = [];
 let computerCards = [];
+let buttonCounter = 0;
 
 function assignCards() {
   // asign player cards
@@ -230,6 +231,7 @@ function assignCards() {
   playerCardsLeft.innerText = "Player Cards " + playerCards.length;
   computerCardsLeft.innerText = "Computer Cards " + computerCards.length;
   roundWinner.innerText = "Round Winner _____";
+  buttonCounter = 0;
 }
 
 assignCards();
@@ -279,6 +281,10 @@ function newRound() {
   compImages.src = compImg;
 
   roundWinner.innerText = "Round Winner _____";
+  buttonCounter = 0; 
+  strengthStat.disabled = false;
+  agilityStat.disabled = false; 
+  intelligenceStat.disabled  = false;
 }
 
 // Use a button to increase the counter when a button for a new round is pressed.
@@ -292,6 +298,9 @@ Then copy paste for each button and each stats.
  */
 
 function strength() {
+  buttonCounter = 1;
+  agilityStat.disabled = true; 
+  intelligenceStat.disabled  = true;
   let pcPlays = playerCards[playerCounter].strength;
   console.log(pcPlays);
   let comPlays = computerCards[playerCounter].strength;
@@ -323,6 +332,9 @@ function strength() {
 }
 
 function agility() {
+  buttonCounter = 2;
+  strengthStat.disabled = true; 
+  intelligenceStat.disabled  = true;
   let pcPlays = playerCards[playerCounter].agility;
   console.log(pcPlays);
   let comPlays = computerCards[playerCounter].agility;
@@ -351,6 +363,9 @@ function agility() {
 }
 
 function intelligence() {
+  buttonCounter = 3; 
+  strengthStat.disabled = true; 
+  agilityStat.disabled  = true;
   let pcPlays = playerCards[playerCounter].intelligence;
   console.log(pcPlays);
   let comPlays = computerCards[playerCounter].intelligence;
