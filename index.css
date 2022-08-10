@@ -1,37 +1,84 @@
-body, html {
-    height: 100%;
-    margin: 0; 
+body,
+html {
+  height: 100%;
+  margin: 0;
 }
-body{
-    background-image: url("../images/catSleep.gif");
-    height: 100%;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+div {
+  display: flex;
+  justify-content: center;
+}
+#choices {
+  display: flex;
+  justify-content: space-evenly;
+}
+body {
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: column;
+
+  background-image: url("./images/catSleep.gif");
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+#pvpButton {
+  padding: 10px;
+  gap: 10px;
+
+  width: 468px;
+  height: 80px;
+  left: 837px;
+  top: 472px;
+
+  border-radius: 29px;
+
+  background: #ff7070;
+  border-radius: 30px;
+  font-family: "Permanent Marker";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 36px;
+  line-height: 52px;
+
+  color: #000000;
+}
+#pvcButton {
+  width: 468px;
+  height: 80px;
+  left: 837px;
+  top: 472px;
+
+  background: #ff7070;
+  border-radius: 30px;
+  font-family: "Permanent Marker";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 36px;
+  line-height: 52px;
+
+  color: #000000;
 }
 
-#choices{
-    display: flex;
-    
-
-
+#choices {
+  display: flex;
 }
-#title{
-    position: absolute;
-width: 593px;
-height: 92px;
-left: 433px;
-top: 281px;
+#title {
+  display: flex;
+  justify-content: center;
+  width: 1000px;
+  height: 92px;
+  left: 433px;
+  top: 281px;
 
-font-family: 'Permanent Marker';
-font-style: normal;
-font-weight: 400;
-font-size: 64px;
-line-height: 93px;
+  font-family: "Permanent Marker";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 128px;
+  line-height: 93px;
 
-color: #000000;
+  color: #000000;
 
-mix-blend-mode: hard-light;
-text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-
+  mix-blend-mode: hard-light;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
